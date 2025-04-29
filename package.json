@@ -7,6 +7,11 @@
     "build": "npm run build --prefix apps/backend && npm run build --prefix apps/frontend"
   },
   "keywords": [],
+  "private": true,
+  "workspaces": [
+    "apps/frontend",
+    "apps/backend"
+  ],
   "author": "",
   "license": "ISC",
   "description": "",
