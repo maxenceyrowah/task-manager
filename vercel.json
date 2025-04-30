@@ -6,7 +6,7 @@
       "use": "@vercel/static-build",
       "config": {
         "buildCommand": "cd apps/frontend && npm install && npm run build",
-        "outputDirectory": "dist"
+        "outputDirectory": "apps/frontend/dist"
       }
     },
     {
@@ -18,6 +18,5 @@
     { "src": "/api/(.*)", "dest": "apps/backend-vercel/api/$1" },
     { "handle": "filesystem" },
     { "src": "/(.*)", "dest": "apps/frontend/dist/$1" }
-  ],
-  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
+  ]
 }
