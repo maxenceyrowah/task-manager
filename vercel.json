@@ -20,17 +20,11 @@
       "dest": "apps/backend-vercel/api/$1"
     },
     {
-      "handle": "filesystem"
-    },
-    {
       "src": "/(.*)",
       "dest": "/apps/frontend/dist/index.html"
-    }
-  ],
-  "rewrites": [
+    },
     {
-      "source": "/(.*)",
-      "destination": "/apps/frontend/dist/index.html"
+      "handle": "filesystem"
     }
   ]
 }
