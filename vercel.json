@@ -14,9 +14,10 @@
       "use": "@vercel/node"
     }
   ],
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/apps/frontend/dist/$1" },
+  "routes": [
+    { "src": "/api/(.*)", "dest": "apps/backend-vercel/api/$1" },
     { "handle": "filesystem" },
-    { "src": "/api/(.*)", "dest": "apps/backend-vercel/api/$1" }
-  ]
+    { "src": "/(.*)", "dest": "apps/frontend/dist/$1" }
+  ],
+  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
 }
