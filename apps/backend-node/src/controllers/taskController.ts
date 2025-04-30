@@ -23,7 +23,7 @@ let tasks: ITask[] = [
   },
 ];
 
-export const getTasks = (req: Request, res: Response) => {
+export const getTasks = (_req: Request, res: Response) => {
   res.json(tasks);
 };
 export const getTask = (req: Request, res: Response) => {
