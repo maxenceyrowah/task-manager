@@ -1,19 +1,5 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "apps/frontend/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "buildCommand": "cd apps/frontend && npm install && npm run build",
-        "outputDirectory": "apps/frontend/dist/index.html"
-      }
-    },
-    {
-      "src": "apps/backend-vercel/api/**/*.ts",
-      "use": "@vercel/node"
-    }
-  ],
   "routes": [
     { "src": "/api/(.*)", "dest": "apps/backend-vercel/api/$1" },
     { "handle": "filesystem" },
