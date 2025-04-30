@@ -17,15 +17,15 @@
   "routes": [
     {
       "src": "/api/tasks",
-      "dest": "apps/backend/api/tasks/index.ts"
+      "dest": "apps/backend-vercel/api/tasks/index.ts"
     },
     {
       "src": "/api/tasks/post",
-      "dest": "apps/backend/api/tasks/post.ts"
+      "dest": "apps/backend-vercel/api/tasks/post.ts"
     },
     {
       "src": "/api/tasks/(?<id>[^/]+)",
-      "dest": "apps/backend/api/tasks/[id].ts"
+      "dest": "apps/backend-vercel/api/tasks/[id].ts"
     },
     {
       "src": "/(.*)",
