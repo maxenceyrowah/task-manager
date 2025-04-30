@@ -12,6 +12,7 @@
   "license": "ISC",
   "description": "task management app",
   "dependencies": {
+    "@vercel/node": "^5.1.15",
     "cors": "^2.8.5",
     "express": "^5.1.0"
   },

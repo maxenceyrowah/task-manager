@@ -1,5 +1,5 @@
-import { Request, Response } from "express";
 import { ITask } from "../interfaces/Task";
+import { VercelRequest, VercelResponse } from "@vercel/node";
 
 let tasks: ITask[] = [
   {
@@ -22,22 +22,24 @@ let tasks: ITask[] = [
   },
 ];
 
-export const getTasks = (_req: Request, res: Response) => {
+export const getTasks = (req: VercelRequest, res: VercelResponse) => {
   res.json(tasks);
 };
-export const getTask = (req: Request, res: Response) => {
-  const task = tasks.find((t) => t.id === parseInt(req.params.id));
+export const getTask = (req: VercelRequest, res: VercelResponse) => {
+  const task = tasks.find((t) => t.id === parseInt(req.query.id as string));
   task ? res.json(task) : res.status(404).json({ message: "Task not found" });
 };
 
-export const createTask = (req: Request, res: Response) => {
+export const createTask = (req: VercelRequest, res: VercelResponse) => {
   const newTask: ITask = { id: Date.now(), ...req.body };
   tasks.push(newTask);
   res.status(201).json(newTask);
 };
 
-export const updateTask = (req: Request, res: Response) => {
-  const index = tasks.findIndex((t) => t.id === parseInt(req.params.id));
+export const updateTask = (req: VercelRequest, res: VercelResponse) => {
+  const index = tasks.findIndex(
+    (t) => t.id === parseInt(req.query.id as string)
+  );
   if (index !== -1) {
     tasks[index] = { ...tasks[index], ...req.body };
     res.json(tasks[index]);
@@ -46,7 +48,7 @@ export const updateTask = (req: Request, res: Response) => {
   }
 };
 
-export const deleteTask = (req: Request, res: Response) => {
-  tasks = tasks.filter((t) => t.id !== parseInt(req.params.id));
-  res.status(204).send();
+export const deleteTask = (req: VercelRequest, res: VercelResponse) => {
+  tasks = tasks.filter((t) => t.id !== parseInt(req.query.id as string));
+  res.status(204).json({ message: "Task deleted" });
 };
