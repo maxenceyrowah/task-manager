@@ -15,16 +15,8 @@
     }
   ],
   "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "apps/backend-vercel/api/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/apps/frontend/dist/index.html"
-    },
-    {
-      "handle": "filesystem"
-    }
+    { "src": "/api/(.*)", "dest": "apps/backend-vercel/api/$1" },
+    { "src": "/(.*)", "dest": "apps/frontend/dist/$1" },
+    { "handle": "filesystem" }
   ]
 }
