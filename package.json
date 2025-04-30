@@ -6,7 +6,12 @@
     "dev": "concurrently \"npm run dev --prefix apps/backend-node\" \"npm run dev --prefix apps/frontend\" \"npm run dev --prefix apps/backend-vercel\"",
     "build": "npm run build --prefix apps/backend-node && npm run build --prefix apps/frontend && npm run build --prefix apps/backend-vercel"
   },
-  "keywords": [],
+  "keywords": [
+    "task-manager",
+    "backend",
+    "frontend",
+    "vercel"
+  ],
   "private": true,
   "workspaces": [
     "apps/frontend",
