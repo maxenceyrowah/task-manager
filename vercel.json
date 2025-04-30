@@ -6,30 +6,16 @@
       "use": "@vercel/static-build",
       "config": {
         "buildCommand": "npm run build",
-        "outputDirectory": "dist"
+        "outputDirectory": "apps/frontend/dist"
       }
     },
     {
-      "src": "apps/backend/api/**/*.ts",
+      "src": "apps/backend-vercel/api/**/*.ts",
       "use": "@vercel/node"
     }
   ],
   "routes": [
-    {
-      "src": "/api/tasks",
-      "dest": "apps/backend-vercel/api/tasks/index.ts"
-    },
-    {
-      "src": "/api/tasks/post",
-      "dest": "apps/backend-vercel/api/tasks/post.ts"
-    },
-    {
-      "src": "/api/tasks/(?<id>[^/]+)",
-      "dest": "apps/backend-vercel/api/tasks/[id].ts"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "apps/frontend/dist/$1"
-    }
+    { "src": "/api/(.*)", "dest": "apps/backend-vercel/api/$1" },
+    { "src": "/(.*)", "dest": "apps/frontend/dist/$1" }
   ]
 }

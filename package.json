@@ -3,14 +3,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"npm run dev --prefix apps/backend-node\" \"npm run dev --prefix apps/frontend\"",
-    "build": "npm run build --prefix apps/backend-node && npm run build --prefix apps/frontend"
+    "dev": "concurrently \"npm run dev --prefix apps/backend-node\" \"npm run dev --prefix apps/frontend\" \"npm run dev --prefix apps/backend-vercel\"",
+    "build": "npm run build --prefix apps/backend-node && npm run build --prefix apps/frontend && npm run build --prefix apps/backend-vercel"
   },
   "keywords": [],
   "private": true,
   "workspaces": [
     "apps/frontend",
-    "apps/backend-node"
+    "apps/backend-node",
+    "apps/backend-vercel"
   ],
   "author": "",
   "license": "ISC",
