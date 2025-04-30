@@ -6,7 +6,7 @@
       "use": "@vercel/static-build",
       "config": {
         "buildCommand": "cd apps/frontend && npm install && npm run build",
-        "outputDirectory": "apps/frontend/dist/index.html"
+        "outputDirectory": "apps/frontend/dist"
       }
     },
     {
@@ -16,7 +16,18 @@
   ],
   "routes": [
     { "src": "/api/(.*)", "dest": "apps/backend-vercel/api/$1" },
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "apps/frontend/dist/index.html" }
+    {
+      "src": "/assets/(.*)",
+      "dest": "apps/frontend/dist/assets/$1",
+      "headers": { "cache-control": "public, max-age=31536000, immutable" }
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "apps/frontend/dist/index.html",
+      "headers": { "cache-control": "public, max-age=0, must-revalidate" }
+    }
   ]
 }
